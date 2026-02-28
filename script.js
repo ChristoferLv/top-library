@@ -1,16 +1,42 @@
 console.log("script");
+const myFormDialog = document.getElementById('add-book-dialog');
+const showFormDialogButton = document.getElementById('add-book-btn');
+const closeButton = document.getElementById("close-btn");
+const myForm = document.getElementById('myForm');
+
+showFormDialogButton.addEventListener('click', () => {
+    myFormDialog.showModal();
+});
+
+closeButton.addEventListener('click', () => {
+    myFormDialog.close();
+});
+
+myForm.addEventListener('submit', (event) => {
+    const formData = new FormData(event.target);
+    const formProps = Object.fromEntries(formData);
+
+    addBookToLibrary(formData.get("bookName"), formData.get("author"), formData.get("pageNumber"))
+
+
+    console.log(event.target.firstElementChild); // { name: 'User Input Value' }
+    console.log('Dialog closed with returnValue:', myFormDialog.returnValue);
+    console.log(formProps)
+});
 
 let myLibrary = [];
 
-function Book(name, author) {
+function Book(name, author, pageNumber) {
     this.id = crypto.randomUUID();
     this.name = name;
     this.author = author;
+    this.pageNumber = pageNumber;
 }
 
-function addBookToLibrary(name, author) {
-    const newBook = new Book(name, author);
+function addBookToLibrary(name, author, pageNumber) {
+    const newBook = new Book(name, author, pageNumber);
     myLibrary.push(newBook);
+    drawTable();
 }
 
 /**
@@ -28,10 +54,12 @@ function handleRemoveBook(e) {
     drawTable();
 }
 
-addBookToLibrary("livro1", "autor1");
-addBookToLibrary("livro2", "autor2");
-addBookToLibrary("livro3", "autor3");
-addBookToLibrary("livro4", "autor4");
+
+
+addBookToLibrary("livro1", "autor1", "83");
+addBookToLibrary("livro2", "autor2", "94");
+addBookToLibrary("livro3", "autor3", "236");
+addBookToLibrary("livro4", "autor4", "745");
 
 function drawTable() {
     const table = document.querySelector("table > tbody");
