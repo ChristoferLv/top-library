@@ -1,0 +1,22 @@
+th,
+td {
+    padding-left: 10px;
+}
+
+table {
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+button {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+tr:nth-child(even) {
+    background-color: gainsboro;
+}
+
+p {
+    display: inline;
+}
