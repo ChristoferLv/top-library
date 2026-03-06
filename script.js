@@ -1,4 +1,3 @@
-console.log("script");
 const myFormDialog = document.getElementById('add-book-dialog');
 const showFormDialogButton = document.getElementById('add-book-btn');
 const closeButton = document.getElementById("close-btn");
@@ -27,7 +26,6 @@ function Book(name, author, pageNumber) {
     this.pageNumber = pageNumber;
     this.read = false;
     this.toggleRead = function () {
-        console.log("troca");
         this.read = !this.read;
     };
 }
@@ -57,14 +55,11 @@ function handleToggleRead(e) {
     const id = e.target.parentElement.getAttribute("data-id");
     for (idx in myLibrary) {
         if (myLibrary[idx].id == id) {
-            console.log("trocar")
             myLibrary[idx].toggleRead();
         }
     }
     drawTable();
 }
-
-
 
 addBookToLibrary("livro1", "autor1", "83");
 addBookToLibrary("livro2", "autor2", "94");
