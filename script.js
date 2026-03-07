@@ -19,15 +19,40 @@ myForm.addEventListener('submit', (event) => {
     myForm.reset();
 });
 
-function Book(name, author, pageNumber) {
-    this.id = crypto.randomUUID();
-    this.name = name;
-    this.author = author;
-    this.pageNumber = pageNumber;
-    this.read = false;
-    this.toggleRead = function () {
+//Definição de Book com "constructor function"
+// function Book(name, author, pageNumber) {
+//     this.id = crypto.randomUUID();
+//     this.name = name;
+//     this.author = author;
+//     this.pageNumber = pageNumber;
+//     this.read = false;
+
+//     // this.toggleRead = function () {
+//     //     this.read = !this.read;
+//     // };
+//     //Definido dessa forma ele fica enumerable:true por default e acaba sendo pego pelo for in na linha 100
+// }
+
+// Object.defineProperty(Book.prototype, "toggleRead", {
+//     value: function () {
+//         this.read = !this.read;
+//     },
+//     enumerable: false, //Serve para que não seja "listado" pelo for in nas linhas 100-101
+// });
+
+
+//Definição de book com "class"
+class Book {
+    constructor(name, author, pageNumber) {
+        this.id = crypto.randomUUID();
+        this.name = name;
+        this.author = author;
+        this.pageNumber = pageNumber;
+        this.read = false;
+    }
+    toggleRead() {
         this.read = !this.read;
-    };
+    }
 }
 
 function addBookToLibrary(name, author, pageNumber) {
@@ -73,16 +98,16 @@ function drawTable() {
         const newRow = document.createElement("tr");
         newRow.setAttribute("data-id", book['id']);
         for (const bookField in book) {
-            if (typeof book[bookField] === 'function') continue;
+            // if (typeof book[bookField] === 'function') continue;
             const newRowData = document.createElement("td");
             newRowData.innerText = book[bookField];
-            if(typeof book[bookField] === 'boolean'){
+            if (typeof book[bookField] === 'boolean') {
                 const readElem = document.createElement("div");
                 readElem.style.setProperty("width", "15px");
                 readElem.style.setProperty("height", "15px");
                 readElem.style.border = "1px solid #000000"
                 readElem.style.backgroundColor = "#F00";
-                if(book[bookField]) readElem.style.backgroundColor = "#0F0";
+                if (book[bookField]) readElem.style.backgroundColor = "#0F0";
                 newRowData.innerText = "";
                 newRowData.append(readElem);
             }
