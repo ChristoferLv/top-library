@@ -11,7 +11,7 @@ O objetivo principal era praticar:
 - Uso do elemento `<dialog>` para formulários modais
 - Associação de elementos do DOM com objetos via `data-attributes`
 
-> **Atualização (lição [Classes](https://www.theodinproject.com/lessons/node-path-javascript-classes)):** A definição de `Book` foi refatorada de uma *constructor function* para uma **`class`**, mantendo o mesmo comportamento. O método `toggleRead()`, antes adicionado via `Object.defineProperty` no protótipo para controle de enumerabilidade, agora é declarado diretamente no corpo da classe — onde métodos já são não-enumeráveis por padrão.
+> **Atualização (lição [Classes](https://www.theodinproject.com/lessons/node-path-javascript-classes#practice)):** A definição de `Book` foi refatorada de uma *constructor function* para uma **`class`**, mantendo o mesmo comportamento. O método `toggleRead()`, antes adicionado via `Object.defineProperty` no protótipo para controle de enumerabilidade, agora é declarado diretamente no corpo da classe — onde métodos já são não-enumeráveis por padrão.
 
 ## O que é?
 
