@@ -13,6 +13,8 @@ O objetivo principal era praticar:
 
 > **Atualização (lição [Classes](https://www.theodinproject.com/lessons/node-path-javascript-classes#practice)):** A definição de `Book` foi refatorada de uma *constructor function* para uma **`class`**, mantendo o mesmo comportamento. O método `toggleRead()`, antes adicionado via `Object.defineProperty` no protótipo para controle de enumerabilidade, agora é declarado diretamente no corpo da classe — onde métodos já são não-enumeráveis por padrão.
 
+> **Atualização (lição [Form Validation with JavaScript](https://www.theodinproject.com/lessons/node-path-javascript-form-validation-with-javascript#warmup)):** O formulário de cadastro passou a usar a **Constraint Validation API** com validação em tempo real (`input`) e validação no envio (`submit`). Também foram adicionadas mensagens de erro personalizadas por campo (título, autor e número de páginas) e destaque visual para entradas inválidas.
+
 ## O que é?
 
 Uma aplicação web para cadastrar e gerenciar uma coleção de livros, contendo:
@@ -37,6 +39,7 @@ Uma aplicação web para cadastrar e gerenciar uma coleção de livros, contendo
 - **Toggle de leitura**: Indicador visual colorido (vermelho/verde) para status de leitura, usando função de protótipo no construtor `Book`
 - **Remover livros**: Exclusão de livros individuais via `data-attributes` associados ao ID único
 - **IDs únicos**: Cada livro recebe um identificador único via `crypto.randomUUID()`
+- **Validação com JavaScript**: Uso da Constraint Validation API com mensagens customizadas e feedback visual de erro no formulário
 - **Sem persistência**: Os dados existem apenas em memória durante a sessão, conforme proposto pela lição
 
 ## Tecnologias Utilizadas
