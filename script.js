@@ -2,6 +2,14 @@ const myFormDialog = document.getElementById('add-book-dialog');
 const showFormDialogButton = document.getElementById('add-book-btn');
 const closeButton = document.getElementById("close-btn");
 const myForm = document.getElementById('myForm');
+const title = document.getElementById("bookName");
+const author = document.getElementById("author");
+const pageNumber = document.getElementById("pageNumber");
+const titleError = document.querySelector("#bookName + div > span.error");
+const authorError = document.querySelector("#author + div > span.error");
+const pageNumberError = document.querySelector("#pageNumber + div > span.error");
+
+
 let myLibrary = [];
 
 showFormDialogButton.addEventListener('click', () => {
@@ -9,14 +17,37 @@ showFormDialogButton.addEventListener('click', () => {
 });
 
 closeButton.addEventListener('click', () => {
+    title.className = "";
+    author.className = "";
+    pageNumber.className = "";
+    titleError.className = "error";
+    authorError.className = "error";
+    pageNumberError.className = "error";
+    titleError.textContent = "";
+    authorError.textContent = "";
+    pageNumberError.textContent = "";
     myForm.reset();
     myFormDialog.close();
 });
 
 myForm.addEventListener('submit', (event) => {
-    const formData = new FormData(event.target);
-    addBookToLibrary(formData.get("bookName"), formData.get("author"), formData.get("pageNumber"))
-    myForm.reset();
+    event.preventDefault();
+    if (!title.validity.valid) {
+        showTitleError();
+    }
+    else if (!author.validity.valid) {
+        showAuthorError();
+    }
+    else if (!pageNumber.validity.valid) {
+        showPagesError();
+    } else {
+        const formData = new FormData(event.target);
+        addBookToLibrary(formData.get("bookName"), formData.get("author"), formData.get("pageNumber"))
+        myForm.reset();
+        myFormDialog.close();
+    }
+
+
 });
 
 //Definição de Book com "constructor function"
@@ -126,5 +157,74 @@ function drawTable() {
     }
 }
 drawTable();
+
+
+
+
+
+
+title.addEventListener("input", (event) => {
+    if (title.validity.valid) {
+        titleError.textContent = "";
+        titleError.className = "error";
+        title.className = "";
+    } else {
+        showTitleError();
+    }
+});
+
+author.addEventListener("input", (event) => {
+    if (author.validity.valid) {
+        authorError.textContent = "";
+        authorError.className = "error";
+        author.className = "";
+    } else {
+        showAuthorError();
+    }
+});
+
+pageNumber.addEventListener("input", (event) => {
+    if (pageNumber.validity.valid) {
+        pageNumberError.textContent = "";
+        pageNumberError.className = "error";
+        pageNumber.className = "";
+    } else {
+        showPagesError();
+    }
+});
+
+function showTitleError() {
+    if (title.validity.valueMissing) {
+        titleError.textContent = "Entre um título.";
+    } else if (title.validity.tooShort) {
+        titleError.textContent = `Título deve ter no mínimo ${title.minLength} caracteres; você entrou ${title.value.length}.`;
+    }
+    titleError.className = "error active";
+    title.className = "invalid";
+}
+
+function showAuthorError() {
+    if (author.validity.valueMissing) {
+        authorError.textContent = "Entre o nome do autor.";
+    } else if (author.validity.tooShort) {
+        authorError.textContent = `Nome do autor deve ter no mínimo ${author.minLength} caracteres; voce entrou ${author.value.length}.`;
+    } else if (author.validity.tooLong) {
+        authorError.textContent = `Nome do autor deve ter no máximo ${author.maxLength} caracteres; voce entrou ${author.value.length}.`;
+    }
+    authorError.className = "error active";
+    author.className = "invalid"
+}
+
+function showPagesError() {
+    if (pageNumber.validity.valueMissing) {
+        pageNumberError.textContent = "Entre o número de páginas.";
+    } else if (pageNumber.validity.rangeUnderflow) {
+        pageNumberError.textContent = "O número de páginas deve ser no mínimo 1";
+    } else if (pageNumber.validity.rangeOverflow) {
+        pageNumberError.textContent = `O número de páginas pode ser no máximo ${pageNumber.max}`;
+    }
+    pageNumberError.className = "error active";
+    pageNumber.className = "invalid";
+}
 
 
