@@ -48,6 +48,10 @@ An application for registering and managing a collection of books, containing:
 - CSS3
 - JavaScript (ES6)
 
+## Visualization
+
+<img width="1309" height="278" alt="localhost_5500_Javascript_top-library" src="https://github.com/user-attachments/assets/2bd17044-68e1-44f7-b731-0e5e1dc10cb5" />
+
 ---
 
 Project developed following: [The Odin Project - Library](https://www.theodinproject.com/lessons/node-path-javascript-library)
