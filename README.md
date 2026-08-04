@@ -1,48 +1,48 @@
 # Library
 
-Biblioteca virtual para gerenciamento de livros, desenvolvida como parte da seção Organizing Your JavaScript Code do curso JavaScript do [The Odin Project](https://www.theodinproject.com/lessons/node-path-javascript-library), com foco em **construtores de objetos**, **protótipos** e **separação entre dados e exibição**.
+Virtual library for managing books, developed as part of the JavaScript path of [The Odin Project](https://www.theodinproject.com/paths/full-stack-javascript/courses/javascript), with a focus on **object constructors**, **prototypes**, and **separating data from presentation**.
 
-## Objetivo do Projeto
+## Project Objective
 
-O objetivo principal era praticar:
-- Construtores de objetos e funções de protótipo
-- Separação de responsabilidades: lógica de dados vs. exibição no DOM
-- Armazenamento de objetos em array e manipulação dinâmica
-- Uso do elemento `<dialog>` para formulários modais
-- Associação de elementos do DOM com objetos via `data-attributes`
+The main objective was to practice:
+- Object constructors and prototype functions
+- Separation of responsibilities: data logic vs. DOM presentation
+- Storing objects in an array and manipulating them dynamically
+- Using the `<dialog>` element for modal forms
+- Associating DOM elements with objects via `data-attributes`
 
-> **Atualização (lição [Classes](https://www.theodinproject.com/lessons/node-path-javascript-classes#practice)):** A definição de `Book` foi refatorada de uma *constructor function* para uma **`class`**, mantendo o mesmo comportamento. O método `toggleRead()`, antes adicionado via `Object.defineProperty` no protótipo para controle de enumerabilidade, agora é declarado diretamente no corpo da classe — onde métodos já são não-enumeráveis por padrão.
+> **Update (lesson [Classes](https://www.theodinproject.com/lessons/node-path-javascript-classes#practice)):** The `Book` definition was refactored from a *constructor function* to a **`class`**, keeping the same behavior. The `toggleRead()` method, previously added via `Object.defineProperty` on the prototype to control enumerability, is now declared directly inside the class body, where methods are non-enumerable by default.
 
-> **Atualização (lição [Form Validation with JavaScript](https://www.theodinproject.com/lessons/node-path-javascript-form-validation-with-javascript#warmup)):** O formulário de cadastro passou a usar a **Constraint Validation API** com validação em tempo real (`input`) e validação no envio (`submit`). Também foram adicionadas mensagens de erro personalizadas por campo (título, autor e número de páginas) e destaque visual para entradas inválidas.
+> **Update (lesson [Form Validation with JavaScript](https://www.theodinproject.com/lessons/node-path-javascript-form-validation-with-javascript#warmup)):** The add book form was updated to use the **Constraint Validation API** with live validation (`input`) and submission validation (`submit`). Custom error messages were also added for each field (title, author, and page count), along with visual highlighting for invalid inputs.
 
-## O que é?
+## What is it?
 
-Uma aplicação web para cadastrar e gerenciar uma coleção de livros, contendo:
-- **Tabela dinâmica** com a lista de livros cadastrados
-- **Modal de cadastro** para adicionar novos livros
-- **Controle de leitura** com indicador visual (lido/não lido)
-- **Remoção de livros** da biblioteca
+An application for registering and managing a collection of books, containing:
+- **Dynamic table** with the list of registered books
+- **Signup modal** for adding new books
+- **Reading status control** with a visual indicator (read/unread)
+- **Book removal** from the library
 
-## Como usar
+## How to use
 
-1. Abra o arquivo `index.html` em seu navegador
-2. Clique em "Adicionar" para abrir o formulário de novo livro
-3. Preencha título, autor e número de páginas
-4. Clique em "Confirm" para adicionar o livro à tabela
-5. Use "Marcar Lido/Não Lido" para alternar o status de leitura
-6. Use "Remover" para excluir um livro da lista
+1. Open the `index.html` file in your browser
+2. Click "Add" to open the new book form
+3. Fill in the title, author, and page count
+4. Click "Confirm" to add the book to the table
+5. Use "Marks Read/Unread" to toggle the reading status
+6. Use "Remove" to delete a book from the list
 
-## Funcionalidades
+## Features
 
-- **Adicionar livros**: Formulário modal (`<dialog>`) com campos de título, autor e número de páginas
-- **Tabela dinâmica**: Renderização automática da lista de livros a partir do array de dados
-- **Toggle de leitura**: Indicador visual colorido (vermelho/verde) para status de leitura, usando função de protótipo no construtor `Book`
-- **Remover livros**: Exclusão de livros individuais via `data-attributes` associados ao ID único
-- **IDs únicos**: Cada livro recebe um identificador único via `crypto.randomUUID()`
-- **Validação com JavaScript**: Uso da Constraint Validation API com mensagens customizadas e feedback visual de erro no formulário
-- **Sem persistência**: Os dados existem apenas em memória durante a sessão, conforme proposto pela lição
+- **Add books**: Modal form (`<dialog>`) with title, author, and page count fields
+- **Dynamic table**: Automatic rendering of the book list from the data array
+- **Reading toggle**: Colored visual indicator (red/green) for reading status, using a prototype function on the `Book` constructor
+- **Remove books**: Deletion of individual books via `data-attributes` associated with the unique ID
+- **Unique IDs**: Each book receives a unique identifier via `crypto.randomUUID()`
+- **JavaScript validation**: Use of the Constraint Validation API with custom messages and visual error feedback in the form
+- **No persistence**: Data exists only in memory during the session, as proposed by the lesson
 
-## Tecnologias Utilizadas
+## Technologies Used
 
 - HTML5
 - CSS3
@@ -50,6 +50,6 @@ Uma aplicação web para cadastrar e gerenciar uma coleção de livros, contendo
 
 ---
 
-Projeto desenvolvido seguindo: [The Odin Project - Library](https://www.theodinproject.com/lessons/node-path-javascript-library)
+Project developed following: [The Odin Project - Library](https://www.theodinproject.com/lessons/node-path-javascript-library)
 
-📍 **Repositório principal com todos os projetos**: [ChristoferLv/TheOdinProject](https://github.com/ChristoferLv/TheOdinProject)
+📍 **Main repository with all projects**: [ChristoferLv/TheOdinProject](https://github.com/ChristoferLv/TheOdinProject)
