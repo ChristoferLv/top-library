@@ -117,10 +117,10 @@ function handleToggleRead(e) {
     drawTable();
 }
 
-addBookToLibrary("livro1", "autor1", "83");
-addBookToLibrary("livro2", "autor2", "94");
-addBookToLibrary("livro3", "autor3", "236");
-addBookToLibrary("livro4", "autor4", "745");
+addBookToLibrary("The Republic", "Plato", "450");
+addBookToLibrary("Monadology", "Gottfried Leibniz's", "30");
+addBookToLibrary("Discourse on Metaphysics", "Gottfried Leibniz's", "128");
+addBookToLibrary("The Elements", "Euclid", "600");
 
 function drawTable() {
     const table = document.querySelector("table > tbody");
@@ -145,12 +145,12 @@ function drawTable() {
             newRow.append(newRowData);
         }
         const removeBtn = document.createElement("button");
-        removeBtn.innerText = "Remover";
+        removeBtn.innerText = "Remove";
         removeBtn.addEventListener("click", handleRemoveBook);
         newRow.append(removeBtn);
 
         const toggleBtn = document.createElement("button");
-        toggleBtn.innerText = "Marcar Lido/Não Lido";
+        toggleBtn.innerText = "Mark read/unread";
         toggleBtn.addEventListener("click", handleToggleRead);
         newRow.append(toggleBtn);
         table.append(newRow);
@@ -195,9 +195,9 @@ pageNumber.addEventListener("input", (event) => {
 
 function showTitleError() {
     if (title.validity.valueMissing) {
-        titleError.textContent = "Entre um título.";
+        titleError.textContent = "Enter a title.";
     } else if (title.validity.tooShort) {
-        titleError.textContent = `Título deve ter no mínimo ${title.minLength} caracteres; você entrou ${title.value.length}.`;
+        titleError.textContent = `Title must have a minimum of ${title.minLength} characters; you entered ${title.value.length}.`;
     }
     titleError.className = "error active";
     title.className = "invalid";
@@ -205,11 +205,11 @@ function showTitleError() {
 
 function showAuthorError() {
     if (author.validity.valueMissing) {
-        authorError.textContent = "Entre o nome do autor.";
+        authorError.textContent = "Enter an author.";
     } else if (author.validity.tooShort) {
-        authorError.textContent = `Nome do autor deve ter no mínimo ${author.minLength} caracteres; voce entrou ${author.value.length}.`;
+        authorError.textContent = `Author name must have a minimum of ${author.minLength} characters; you entered ${author.value.length}.`;
     } else if (author.validity.tooLong) {
-        authorError.textContent = `Nome do autor deve ter no máximo ${author.maxLength} caracteres; voce entrou ${author.value.length}.`;
+        authorError.textContent = `Author name must have a maximum of ${author.maxLength} characters; you entered ${author.value.length}.`;
     }
     authorError.className = "error active";
     author.className = "invalid"
@@ -217,11 +217,11 @@ function showAuthorError() {
 
 function showPagesError() {
     if (pageNumber.validity.valueMissing) {
-        pageNumberError.textContent = "Entre o número de páginas.";
+        pageNumberError.textContent = "Enter the number of pages";
     } else if (pageNumber.validity.rangeUnderflow) {
-        pageNumberError.textContent = "O número de páginas deve ser no mínimo 1";
+        pageNumberError.textContent = "Number of pages must be at least 1";
     } else if (pageNumber.validity.rangeOverflow) {
-        pageNumberError.textContent = `O número de páginas pode ser no máximo ${pageNumber.max}`;
+        pageNumberError.textContent = `Number of pages can be a maximum of ${pageNumber.max}`;
     }
     pageNumberError.className = "error active";
     pageNumber.className = "invalid";

@@ -9,16 +9,16 @@
 </head>
 
 <body>
-    <p>Adicionar novo livro:</p>
-    <button id="add-book-btn">Adicionar</button>
+    <p>Add new book:</p>
+    <button id="add-book-btn">Add New</button>
     <table>
         <thead>
             <tr>
                 <th>id</th>
                 <th>Name</th>
-                <th>Autor</th>
-                <th>Número de Páginas</th>
-                <th>Lido</th>
+                <th>Author</th>
+                <th>Number of Pages</th>
+                <th>Read</th>
             </tr>
         </thead>
         <tbody>
@@ -30,21 +30,21 @@
         <form id="myForm" novalidate>
             <div>
                 <label for="bookName">
-                    <span>Título</span>
+                    <span>Title</span>
                     <input type="text" id="bookName" name="bookName" placeholder="Título" required minlength="3"
                         maxlength="40" autocomplete="off">
                     <div><span class="error" aria-live="polite"></span></div>
                 </label>
                 <label for="author">
-                    <span>Autor</span>
+                    <span>Author</span>
                     <input type="text" id="author" name="author" placeholder="Autor" required minlength="3"
                         maxlength="40" autocomplete="off">
                     <div><span class="error" aria-live="polite"></span></div>
                 </label>
                 <label for="pageNumber">
-                    <span>Número de Páginas</span>
+                    <span>Number of Pages</span>
                     <input type="number" id="pageNumber" name="pageNumber" placeholder="123" required min="1"
-                        max="10000" autocomplete="off">
+                        max="20000" autocomplete="off">
                     <div><span class="error" aria-live="polite"></span></div>
                 </label>
             </div>
